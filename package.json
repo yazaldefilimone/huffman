@@ -1,0 +1,22 @@
+{
+  "name": "huffman",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Algorithm for lossless data compression implementation in TypeScript",
+  "repository": "git@github.com:yazaldefilimonepinto/huffman.git",
+  "author": "Yazalde Filimone <yazaldefilimon@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "vitest",
+    "build": "tsup src/index.ts --format c js - d dist",
+    "dev": "tsx src/main.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.7",
+    "tsup": "^7.2.0",
+    "tsx": "^3.12.7",
+    "typescript": "^5.2.2",
+    "vite-tsconfig-paths": "^4.2.0",
+    "vitest": "^0.34.3"
+  }
+}
