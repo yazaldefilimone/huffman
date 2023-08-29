@@ -4,7 +4,7 @@
 
 2. **Função `createFrequency`**: Essa função recebe os dados de entrada (uma string) e cria um mapa de frequência. O mapa de frequência armazena cada símbolo único nos dados como chave e sua frequência correspondente como valor. Por exemplo, se os dados de entrada forem `"exampledata"`, o mapa de frequência pode ser:
 
-`ts
+```ts
    { 
     'e': 2, 
     'x': 1, 
@@ -15,7 +15,7 @@
     'd': 1, 
     't': 1
   }
-`
+```
 
 3. **Função `createTree`**: Essa função constrói a árvore de Huffman usando uma fila de prioridade (implementada como um array). Ela itera pelo mapa de frequência e cria nós para cada par símbolo-frequência. Em seguida, ela remove repetidamente os dois nós com as menores frequências da fila de prioridade, combina-os em um novo nó pai e insere o nó pai de volta na fila. Esse processo continua até restar apenas um nó na fila, que se torna a raiz da árvore de Huffman.
 
@@ -29,17 +29,17 @@
 
 **1. Construção da Árvore de Huffman:**
 
-- **Símbolos e Frequências:** Suponha que temos um conjunto de símbolos \(S\) e suas frequências correspondentes \(f(s)\), onde \(s\) é um símbolo pertencente a \(S\).
-- **Probabilidade de Ocorrência:** A probabilidade \(p(s)\) de um símbolo \(s\) é calculada dividindo sua frequência pela soma de todas as frequências: \(p(s) = \frac{f(s)}{\sum\_{s' \in S} f(s')}\).
+- **Símbolos e Frequências:** Suponha que temos um conjunto de símbolos $$\(S\)$$ e suas frequências correspondentes $$\(f(s)\)$$, onde $$\(s\)$$ é um símbolo pertencente a $\(S\)$.
+- **Probabilidade de Ocorrência:** A probabilidade $$\(p(s)\)$$ de um símbolo $$\(s\)$$ é calculada dividindo sua frequência pela soma de todas as frequências: $$\(p(s) = \frac{f(s)}{\sum\_{s' \in S} f(s')}\)$$.
 
 **2. Cálculo da Entropia:**
 
-- **Entropia:** A entropia de uma fonte de informação é uma medida da incerteza associada à ocorrência dos símbolos. Ela é calculada pela fórmula: \(H(S) = -\sum\_{s \in S} p(s) \cdot \log_2(p(s))\).
+- **Entropia:** A entropia de uma fonte de informação é uma medida da incerteza associada à ocorrência dos símbolos. Ela é calculada pela fórmula: $$\(H(S) = -\sum\_{s \in S} p(s) \cdot \log_2(p(s))\)$$.
 - A entropia é o valor mínimo de bits médios necessários para representar cada símbolo.
 
 **3. Geração dos Códigos de Huffman:**
 
-- **Comprimento Médio dos Códigos:** O comprimento médio dos códigos de Huffman é calculado pela fórmula: \(L(S) = \sum\_{s \in S} p(s) \cdot \text{comprimento}(s)\), onde \(\text{comprimento}(s)\) é o comprimento do código de Huffman para o símbolo \(s\).
+- **Comprimento Médio dos Códigos:** O comprimento médio dos códigos de Huffman é calculado pela fórmula: $$\(L(S) = \sum\_{s \in S} p(s) \cdot \text{comprimento}(s)\)$$, onde $$\(\text{comprimento}(s)\)$$ é o comprimento do código de Huffman para o símbolo \(s\).
 - **Propriedade Otimizada:** O algoritmo de Huffman busca minimizar o comprimento médio dos códigos, garantindo que símbolos mais frequentes tenham códigos mais curtos.
 
 **4. Algoritmo de Huffman:**
@@ -56,7 +56,7 @@ The provided code implements the Huffman coding algorithm, which is a method for
 
 2. **`createFrequency` Function**: This function takes input data (a string) and creates a frequency map. The frequency map stores each unique symbol in the data as a key and its corresponding frequency as the value. For example, if the input data is `"exampledata"`, the frequency map might look like:
 
-`ts
+```ts
    { 
     'e': 2, 
     'x': 1, 
@@ -67,7 +67,7 @@ The provided code implements the Huffman coding algorithm, which is a method for
     'd': 1, 
     't': 1
   }
-`
+```
 
 3. **`createTree` Function**: This function constructs the Huffman tree using a priority queue (implemented as an array). It iterates through the frequency map and creates nodes for each symbol-frequency pair. Then, it repeatedly removes the two nodes with the lowest frequencies from the priority queue, combines them into a new parent node, and inserts the parent node back into the queue. This process continues until only one node remains in the queue, which becomes the root of the Huffman tree.
 
@@ -81,17 +81,17 @@ The provided code implements the Huffman coding algorithm, which is a method for
 
 **1. Construction of the Huffman Tree:**
 
-- **Symbols and Frequencies:** Assume we have a set of symbols \(S\) and their corresponding frequencies \(f(s)\), where \(s\) is a symbol belonging to \(S\).
-- **Probability of Occurrence:** The probability \(p(s)\) of a symbol \(s\) is calculated by dividing its frequency by the sum of all frequencies: \(p(s) = \frac{f(s)}{\sum\_{s' \in S} f(s')}\).
+- **Symbols and Frequencies:** Assume we have a set of symbols $\(S\)$ and their corresponding frequencies $\(f(s)\)$, where $\(s\)$ is a symbol belonging to $$\(S\)$$.
+- **Probability of Occurrence:** The probability $$\(p(s)\)$$ of a symbol $$\(s\)$$ is calculated by dividing its frequency by the sum of all frequencies: $$\(p(s) = \frac{f(s)}{\sum\_{s' \in S} f(s')}\)$$.
 
 **2. Calculation of Entropy:**
 
-- **Entropy:** The entropy of an information source is a measure of uncertainty associated with the occurrence of symbols. It is calculated by the formula: \(H(S) = -\sum\_{s \in S} p(s) \cdot \log_2(p(s))\).
+- **Entropy:** The entropy of an information source is a measure of uncertainty associated with the occurrence of symbols. It is calculated by the formula: $$\(H(S) = -\sum\_{s \in S} p(s) \cdot \log_2(p(s))\)$$.
 - Entropy is the minimum average number of bits needed to represent each symbol.
 
 **3. Generation of Huffman Codes:**
 
-- **Average Code Length:** The average code length of Huffman codes is calculated by the formula: \(L(S) = \sum\_{s \in S} p(s) \cdot \text{length}(s)\), where \(\text{length}(s)\) is the length of the Huffman code for symbol \(s\).
+- **Average Code Length:** The average code length of Huffman codes is calculated by the formula: $$\(L(S) = \sum\_{s \in S} p(s) \cdot \text{length}(s)\)$$, where $$\(\text{length}(s)\)v is the length of the Huffman code for symbol $$\(s\)$$.
 - **Optimized Property:** The Huffman algorithm aims to minimize the average code length, ensuring that more frequent symbols have shorter codes.
 
 **4. Huffman Algorithm:**
